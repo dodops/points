@@ -1,4 +1,7 @@
-# Points
+Points API
+===========
+
+[![Elixir CI](https://github.com/dodops/points/actions/workflows/elixir.yml/badge.svg)](https://github.com/dodops/points/actions/workflows/elixir.yml)
 
 To start your Phoenix server:
 
