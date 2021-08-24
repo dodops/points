@@ -14,9 +14,9 @@ defmodule PointsWeb.Router do
   end
 
   scope "/", PointsWeb do
-    pipe_through :browser
+    pipe_through :api
 
-    get "/", PageController, :index
+    get "/", UserController, :index
   end
 
   # Other scopes may use custom stacks.
