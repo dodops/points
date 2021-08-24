@@ -12,6 +12,20 @@ jobs:
     name: Build and test
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_DB: oban_test
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports: ['5432:5432']
+
     steps:
     - uses: actions/checkout@v2
     - name: Set up Elixir
@@ -27,5 +41,9 @@ jobs:
         restore-keys: ${{ runner.os }}-mix-
     - name: Install dependencies
       run: mix deps.get
+    - name: Run mix ecto.create
+      run: mix ecto.create
+    - name: Run mix ecto.migrate
+      run: mix ecto.migrate
     - name: Run tests
       run: mix test
