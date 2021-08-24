@@ -14,7 +14,9 @@ defmodule Points.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Points.PubSub},
       # Start the Endpoint (http/https)
-      PointsWeb.Endpoint
+      PointsWeb.Endpoint,
+      # Start the UserHandler GenServer
+      Points.UserHandler
       # Start a worker by calling: Points.Worker.start_link(arg)
       # {Points.Worker, arg}
     ]
