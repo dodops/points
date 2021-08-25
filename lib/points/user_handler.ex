@@ -1,6 +1,6 @@
 defmodule Points.UserHandler do
   @moduledoc """
-  GenServer designed to handle a maximum number of points, and a timestamp with of the last time it was called.
+  GenServer designed to handle a maximum number of points, and a timestamp of the last time it was called.
   Every minute all users points are randomized to new values between 1 and 100 and saved in the database.
 
   It also can be used to retrieve users from databases with more points than the max_number state.
